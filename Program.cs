@@ -29,7 +29,7 @@ namespace Baccarat
             Console.WriteLine("Pokud hráč nelíže třetí kartu, bankéř stojí na 6.");
             return;
         }
-        static double Hra(int sazka, string predikce) 
+        static double HraBaccarat(double sazka, string predikce) 
         {            
             Random rnd = new Random();
             int kartaHrace1 = rnd.Next(0,10);
@@ -171,7 +171,7 @@ namespace Baccarat
 
         }
 
-        static void Main(string[] args)
+        static double Baccarat(double Balance)
         {
             double staraBalance = 100;
             double Balance = 100;
@@ -187,7 +187,7 @@ namespace Baccarat
 
                     Console.WriteLine("Napište hodnotu kterou chcete vsadit");
                     while (true) {
-                        if (int.TryParse(Console.ReadLine(), out int input))
+                        if (int.TryParse(Console.ReadLine(), out double input))
                         {
                             if (input <= Balance)
                             {
@@ -201,7 +201,7 @@ namespace Baccarat
                                     if (predikce == "hrac" || predikce == "banker" || predikce == "remiza")
                                     {
                                         staraBalance = Balance;
-                                        Balance += Hra(input, predikce);
+                                        Balance += HraBaccarat(input, predikce);
                                         if (Balance > staraBalance)
                                         {
                                             Console.WriteLine("Vyhráli jste váš nový zbytek je: "+Balance);
@@ -241,6 +241,11 @@ namespace Baccarat
                         }
                     }
 
+                }
+                else if (lobbyInput == "exit")
+                {
+                    Console.WriteLine("odcházíte se zbytkem: " + Balance);
+                    return(Balance);
                 }
                 else 
                 { 
