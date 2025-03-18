@@ -1,11 +1,14 @@
 ﻿using System.Numerics;
 using System.Reflection;
+using System;
+using System.Collections.Generic;
 
-namespace Baccarat
+namespace Kasino
 {
     internal class Program
     {
-        static void Pravidla() {
+        class Baccarat{
+        private void Pravidla() {
             Console.WriteLine("V Baccaratu hráč sází na hráče(Player), bankéře(Banker) nebo remízu(Tie).Hráč i bankéř dostanou dvě karty, přičemž cílem je mít hodnotu co nejblíže 9(10 + se počítá jen poslední číslice).");
             Console.WriteLine("-2–9 = nominální hodnota");
             Console.WriteLine("-10, J, Q, K = 0");
@@ -29,7 +32,7 @@ namespace Baccarat
             Console.WriteLine("Pokud hráč nelíže třetí kartu, bankéř stojí na 6.");
             return;
         }
-        static double HraBaccarat(double sazka, string predikce) 
+        private double HraBaccarat(double sazka, string predikce) 
         {            
             Random rnd = new Random();
             int kartaHrace1 = rnd.Next(0,10);
@@ -171,7 +174,7 @@ namespace Baccarat
 
         }
 
-        static double Baccarat(double Balance)
+        public double Baccarat(double Balance)
         {
             double staraBalance = 100;
             double Balance = 100;
@@ -253,5 +256,9 @@ namespace Baccarat
                 }
             }
         }
+        }
+
+
+        
     }
 }
