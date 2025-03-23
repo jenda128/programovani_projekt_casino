@@ -16,7 +16,7 @@ namespace Kasino
             Console.WriteLine("2 - Ruleta");
             Console.WriteLine("3 - Oko Bere");
             Console.WriteLine("4 - Konec");
-
+            
             while (true)
             {
                 Console.Write("Zadejte číslo hry: ");
