@@ -5,7 +5,7 @@ namespace Baccarat
 {
     internal class Program
     {
-        public main (double Balance){
+        public main (){
             Baccarat(double Balance);
             
         }
