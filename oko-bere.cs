@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class Program
+class Okobere
 {
     static Random rand = new Random();
     static string[] karty = { "7", "8", "9", "10", "J", "Q", "K", "A" };
