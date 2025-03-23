@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Baccarat
 {
-    internal class Program
+    internal class Baccarat
     {
         public main (){
             Baccarat(double Balance);
