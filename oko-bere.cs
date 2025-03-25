@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+namespace OkoBere {
 class Okobere
 {
     static Random rand = new Random();
@@ -74,4 +75,5 @@ class Okobere
         }
         Console.WriteLine("Bank je prázdný! Konec hry.");
     }
+}
 }
