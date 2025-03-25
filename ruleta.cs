@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class Program
+namespace Ruleta {
+class RuletaHra
 {
-    static void Main()
+    public double Ruleta(double balance)
     {
         Random random = new Random();
         int balance = 1000;
@@ -98,4 +99,4 @@ class Program
     }
 }
 
-
+}
