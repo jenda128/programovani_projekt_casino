@@ -1,41 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OkoBere {
-class Okobere
+namespace Okobere {
+class OkobereHra
 {
-    static Random rand = new Random();
-    static string[] karty = { "7", "8", "9", "10", "J", "Q", "K", "A" };
+    private Random rand = new Random();
+    private string[] karty = { "7", "8", "9", "10", "J", "Q", "K", "A" };
 
-    static int Hodnota(string karta)
+    private int Hodnota(string karta)
     {
         if (karta == "A") return 11;
         if (karta == "J" || karta == "Q" || karta == "K") return 1;
         return int.Parse(karta);
     }
 
-    static int Skore(List<string> karty)
+    private int Skore(List<string> karty)
     {
         int s = 0;
         foreach (var k in karty) s += Hodnota(k);
         return s;
     }
 
-    static void ZobrazKarty(List<string> hrac)
+    private void ZobrazKarty(List<string> hrac)
     {
         Console.WriteLine($"Tvoje karty: {string.Join(", ", hrac)} (skóre: {Skore(hrac)})");
     }
 
-    static void Main()
+    public double Okobere(double balance)
     {
         Console.WriteLine("Oko bere!");
-        int bank = 100, sazka;
+        int balance = 100, sazka;
 
-        while (bank > 0)
+        while (balance > 0)
         {
             Console.Write($"Kolik vsadíš? (max {bank}, 0 = konec): ");
             if (!int.TryParse(Console.ReadLine(), out sazka) || sazka <= 0 || sazka > bank) continue;
-            bank -= sazka;
+            balance -= sazka;
 
             List<string> hrac = new List<string> { karty[rand.Next(karty.Length)] };
             List<string> banker = new List<string> { karty[rand.Next(karty.Length)] };
@@ -62,7 +62,7 @@ class Okobere
                     if (Skore(banker) > 21 || Skore(hrac) > Skore(banker))
                     {
                         Console.WriteLine("Vyhrál jsi!");
-                        bank += sazka * 2;
+                        balance += sazka * 2;
                     }
                     else
                     {
@@ -73,7 +73,7 @@ class Okobere
             }
             Console.WriteLine($"Bank: {bank} Kč");
         }
-        Console.WriteLine("Bank je prázdný! Konec hry.");
+        Console.WriteLine("balance je prázdný! Konec hry.");
     }
 }
 }
