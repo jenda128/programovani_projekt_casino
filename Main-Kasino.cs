@@ -11,33 +11,37 @@ namespace Kasino
 {
     class Program
     {
-        static double Vyber(double balance, string input, vlastniRuleta, vlastniBaccarat, vlastniRuleta) 
+        static double Vyber(double balance, string input, vlastniBaccarat, vlastniRuleta) 
         {
             
-            Console.WriteLine("Vítejte v kasinu! Vyberte si hru:");
-            Console.WriteLine("1 - Baccarat");
-            Console.WriteLine("2 - Ruleta");
-            Console.WriteLine("3 - Oko Bere");
-            Console.WriteLine("4 - Shop");
-            Console.WriteLine("5 - Achievementy")
-            Console.WriteLine("6 - Konec")
-            Console.Write("Zadejte číslo hry: ");
-
+            while(true){
                 switch (input)
                 {
                     case "1":
-
+                        if (vlastniBaccarat == true)
+                        {                            
                         BaccaratKasino baccarat = new BaccaratKasino();
-                        baccarat.Baccarat(balance); // Start hry s počátečním bankem 100
-                        break;
+                        return(baccarat.Baccarat(balance));
+                        }
+                        else 
+                        {
+                            Console.WriteLine("Nevlastníte Baccarat");
+                            Console.WriteLine("Pokud Chcete hrát musíte si ho zakoupit v shopu");
+                            break;
+                        }
                     case "2":
+                        if(vlastniRuleta == true){
                         Ruleta ruleta = new Ruleta();
-                        ruleta.RuletaHra(balance);
-                        break;
+                        return(ruleta.RuletaHra(balance));
+                        }else 
+                        {
+                            Console.WriteLine("Nevlastníte Ruletu");
+                            Console.WriteLine("Pokud Chcete hrát musíte si ji zakoupit v shopu");
+                            break;
+                        }
                     case "3":
-                        Okobere okoBere = new Okobere();
-                        okoBere.OkoBere(balance);
-                        break;
+                        Okobere okoBere = new Okobere();                        
+                        return (okoBere.OkoBere(balance));
                     case "4":
                         Shop shop = new Shop();
                         break
@@ -51,22 +55,30 @@ namespace Kasino
                         Console.WriteLine("Neplatná volba, zkuste to znovu.");
                         break;
                 }
+            }
 
         }
         static void Main(string[] args)
         {
             bool vlastniBaccarat = false;
-            bool vlastniOkobere = false;
             bool vlastniRuleta = false;
             double balance = 1000000;
-            while{
+            while(true){
                 Console.Write("Zadejte výběr: ");
                 Console.WriteLine("enter - napište pokud chcete do kasína");
                 Console.WriteLine("exit - napište pokud chcete odejít");
                 switch (Console.ReadLine()) 
                 {
-                    case "enter":                
-                    double balance = Vyber(balance, Console.ReadLine(), vlastniBaccarat, vlastniOkobere, vlastniRuleta);
+                    case "enter":
+                    Console.WriteLine("Vítejte v kasinu! Vyberte si hru:");
+                    Console.WriteLine("1 - Baccarat");
+                    Console.WriteLine("2 - Ruleta");
+                    Console.WriteLine("3 - Oko Bere");
+                    Console.WriteLine("4 - Shop");
+                    Console.WriteLine("5 - Achievementy")
+                    Console.WriteLine("6 - Konec")
+                    Console.Write("Zadejte číslo hry: ");
+                    double balance = Vyber(balance, Console.ReadLine(), vlastniBaccarat, vlastniRuleta);
                     break;
                     case "exit":
                     Console.WriteLine("Odcházíte z kasina, mějte se!")
