@@ -3,13 +3,14 @@ class Shop {
         Console.WriteLine("Vítejte v shopu")
         while (true)
         {
-            Console.WriteLine("");
+            Console.WriteLine("1 - napište pokud si chcete koupit ruletu za 1000 chechtáků");
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Pokud chcete odejít ze shopu napište exit");
             string input = Console.ReadLine();
             switch{
-                case ()
+                case (input == 1 && vlastniRuleta != true):
+                
 
             }
 
