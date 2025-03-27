@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Data;
 using Baccarat;
 using oko-bere;
-using ruleta;
-
+using Ruleta;
+using 
 namespace Kasino
 {
     class Program
     {
-        static double Vyber(double balance, string input, vlastniBaccarat, vlastniRuleta) 
+        static double Vyber(double balance, string input, bool vlastniBaccarat, bool vlastniRuleta) 
         {
             
             while(true){
