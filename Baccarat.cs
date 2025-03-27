@@ -21,7 +21,7 @@ namespace Baccarat
             Console.WriteLine("- 6-7 → stojí");
             Console.WriteLine("- 8-9 → natural (konec hry)");
             Console.WriteLine();
-            //cast s bankerovou treti kartou je spatne
+            //cast s bankerovou treti kartou je nesrozumitelna
             Console.WriteLine("Bankéř líže podle hráčovy třetí karty:");
             Console.WriteLine("- 3 → líže, pokud hráč nelízl 8");
             Console.WriteLine("- 4 → líže, pokud hráč nelízl 1, 8, 9, 10");
