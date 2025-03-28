@@ -6,22 +6,24 @@ using System.Data;
 using Baccarat;
 using oko-bere;
 using Ruleta;
-using 
+using Shop;
 namespace Kasino
 {
     class Program
     {
-        static double Vyber(double balance, string input, bool vlastniBaccarat, bool vlastniRuleta) 
+        static double Vyber(double balance, string input) 
         {
             
             while(true){
+
                 switch (input)
                 {
                     case "1":
-                        if (vlastniBaccarat == true)
+                        if (items["Baccarat"].vlastni == true)
                         {                            
                         BaccaratKasino baccarat = new BaccaratKasino();
-                        return(baccarat.Baccarat(balance));
+                        balance = baccarat.Baccarat(balance);
+                        break;
                         }
                         else 
                         {
@@ -30,10 +32,12 @@ namespace Kasino
                             break;
                         }
                     case "2":
-                        if(vlastniRuleta == true){
+                        if(items["Ruleta"].vlastni == true){
                         Ruleta ruleta = new Ruleta();
-                        return(ruleta.RuletaHra(balance));
-                        }else 
+                        balance = ruleta.RuletaHra(balance);
+                        break;
+                        }
+                        else 
                         {
                             Console.WriteLine("Nevlastníte Ruletu");
                             Console.WriteLine("Pokud Chcete hrát musíte si ji zakoupit v shopu");
@@ -41,18 +45,21 @@ namespace Kasino
                         }
                     case "3":
                         Okobere okoBere = new Okobere();                        
-                        return (okoBere.OkoBere(balance));
+                        balance = okoBere.OkoBere(balance);
+                        break;
                     case "4":
                         Shop shop = new Shop();
-                        break
+                        balance = shop.Shop(balance);
+                        break;
                     case "5": 
-                        Achievementy achievementy = new Achievementy()
-                        break
-                    case "6":
+                        Achievementy achievementy = new Achievementy();
+                        break;
+                    case "exit":
                         Console.WriteLine("Jste si opravdu jistí?");
-                        return(balance); // Ukončení programu
+                        return(balance);
                     default:
                         Console.WriteLine("Neplatná volba, zkuste to znovu.");
+                        Console.WriteLine("Pokud si přejete odejít napište: exit");
                         break;
                 }
             }
@@ -60,8 +67,6 @@ namespace Kasino
         }
         static void Main(string[] args)
         {
-            bool vlastniBaccarat = false;
-            bool vlastniRuleta = false;
             double balance = 1000000;
             while(true){
                 Console.Write("Zadejte výběr: ");
@@ -75,17 +80,17 @@ namespace Kasino
                     Console.WriteLine("2 - Ruleta");
                     Console.WriteLine("3 - Oko Bere");
                     Console.WriteLine("4 - Shop");
-                    Console.WriteLine("5 - Achievementy")
-                    Console.WriteLine("6 - Konec")
+                    Console.WriteLine("5 - Achievementy");
+                    Console.WriteLine("exit - Konec");
                     Console.Write("Zadejte číslo hry: ");
-                    double balance = Vyber(balance, Console.ReadLine(), vlastniBaccarat, vlastniRuleta);
+                    balance = Vyber(balance, Console.ReadLine());
                     break;
                     case "exit":
-                    Console.WriteLine("Odcházíte z kasina, mějte se!")
+                    Console.WriteLine("Odcházíte z kasina, mějte se!");
                     break;
-                    else {
-                        Console.WriteLine("neplatný vstup");
-                    }
+                    default: 
+                    Console.WriteLine("neplatný vstup");
+                    break;
                 }
             }
         }
