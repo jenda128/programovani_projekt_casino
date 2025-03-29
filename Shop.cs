@@ -21,7 +21,7 @@ class Shop {
         //tbh s timhle kodem mi pomohl chat gpt protoze jsem si uz vubec nepamatoval jak se pracuje se slovnikem
         public double balance;
         //dictionary jsem delal s chatgpt
-        public static Dictionary<string, (int cena, bool vlastni)> items { get; public set; } = new Dictionary<string, (int, bool)>
+        public static Dictionary<string, (int cena, bool vlastni)> items { get; private set; } = new Dictionary<string, (int, bool)>
         {
             { "Baccarat", (1000, false) },
             { "Ruleta", (1200, false) },//tady pridejte svoje polozky ve stejnym formatu jako bacarat a ruleta
@@ -30,9 +30,8 @@ class Shop {
 
         };
 
-    public double Shop (double inputBalance){
+    public double ViewShop (){
         Console.WriteLine("Vítejte v shopu");
-        balance = inputBalance;
         while (true)
         {            
             /*taky chatgpt:foreach (var item in items)

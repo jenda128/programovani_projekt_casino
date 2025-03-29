@@ -5,10 +5,6 @@ namespace Baccarat
 {
     internal class Baccarat
     {
-        public main (){
-            Baccarat(double Balance);
-            
-        }
         static void Pravidla() {
             Console.WriteLine("V Baccaratu hráč sází na hráče(Player), bankéře(Banker) nebo remízu(Tie).Hráč i bankéř dostanou dvě karty, přičemž cílem je mít hodnotu co nejblíže 9(10 + se počítá jen poslední číslice).");
             Console.WriteLine("-2–9 = nominální hodnota");
@@ -175,7 +171,7 @@ namespace Baccarat
 
         }
 
-        static double Baccarat(double Balance)
+        static double PlayBaccarat(double Balance)
         {
             double staraBalance = 100;
             double Balance = 100;

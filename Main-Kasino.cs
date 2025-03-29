@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using Baccarat;
-using oko-bere;
+using Okobere;
 using Ruleta;
 using Shop;
 using Achievementy;
@@ -22,8 +22,7 @@ namespace Kasino
                     case "1":
                         if (items["Baccarat"].vlastni == true)
                         {                            
-                        BaccaratKasino baccarat = new BaccaratKasino();
-                        balance = baccarat.Baccarat(balance);
+                        balance = Baccarat.PlayBaccarat(balance);
                         break;
                         }
                         else 
@@ -34,8 +33,7 @@ namespace Kasino
                         }
                     case "2":
                         if(items["Ruleta"].vlastni == true){
-                        Ruleta ruleta = new Ruleta();
-                        balance = ruleta.RuletaHra(balance);
+                        balance = Ruleta.PlayRuleta(balance);
                         break;
                         }
                         else 
@@ -44,13 +42,11 @@ namespace Kasino
                             Console.WriteLine("Pokud Chcete hrát musíte si ji zakoupit v shopu");
                             break;
                         }
-                    case "3":
-                        Okobere okoBere = new Okobere();                        
-                        balance = okoBere.OkoBere(balance);
+                    case "3":                   
+                        balance = okoBereHra.OkoBere(balance);
                         break;
                     case "4":
-                        Shop shop = new Shop();
-                        balance = shop.Shop(balance);
+                        Shop.ViewShop();
                         break;
                     case "5": 
                         Achievementy.ShowAchievements();

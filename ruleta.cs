@@ -4,9 +4,9 @@ using System.Threading;
 using Achievementy; 
 namespace Ruleta
 {
-    class RuletaHra
+    class Ruleta
     {
-        public double StartGame()
+        public double PlayRuleta()
         {
             Random random = new Random();
             int balance = 1000;

@@ -1,0 +1,5 @@
+C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.AssemblyInfoInputs.cache
+C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.AssemblyInfo.cs
+C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.csproj.CoreCompileInputs.cache
+C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.sourcelink.json
