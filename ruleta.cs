@@ -30,7 +30,7 @@ namespace Ruleta
 
                 if (betType == 3)
                 {
-                    Console.WriteLine("Děkujeme za hru! 🎲");
+                    Console.WriteLine("Děkujeme za hru! ");
                     break;
                 }
 
@@ -77,7 +77,7 @@ namespace Ruleta
                 {
                     int winnings = bet * 35;
                     balance += winnings;
-                    Console.WriteLine($" 🎉 Gratulujeme! Vyhráli jste {winnings} Kč!");
+                    Console.WriteLine($"  Gratulujeme! Vyhráli jste {winnings} Kč!");
                     Achievementy.JackpotAchievement(); 
                     won = true;
                 }
@@ -85,13 +85,13 @@ namespace Ruleta
                 {
                     int winnings = bet * 2;
                     balance += winnings;
-                    Console.WriteLine($" 🎉 Gratulujeme! Vyhráli jste {winnings} Kč!");
+                    Console.WriteLine($"  Gratulujeme! Vyhráli jste {winnings} Kč!");
                     won = true;
                 }
                 else
                 {
                     balance -= bet;
-                    Console.WriteLine(" 😢 Bohužel jste prohráli.");
+                    Console.WriteLine(" Bohužel jste prohráli. :(");
                 }
 
                 Achievementy.CheckAchievements(betType == 1 ? "number" : "color", bet, won);
