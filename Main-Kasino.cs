@@ -53,7 +53,7 @@ namespace Kasino
                         balance = shop.Shop(balance);
                         break;
                     case "5": 
-                        Achievementy achievementy = new Achievementy();
+                        Achievementy.ShowAchievements();
                         break;
                     case "exit":
                         Console.WriteLine("Jste si opravdu jistí?");
