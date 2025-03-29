@@ -6,7 +6,7 @@ namespace Ruleta
 {
     class RuletaHra
     {
-        public void StartGame()
+        public double StartGame()
         {
             Random random = new Random();
             int balance = 1000;
