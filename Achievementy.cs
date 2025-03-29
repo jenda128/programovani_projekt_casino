@@ -41,5 +41,12 @@ namespace Achievementy
                 Console.WriteLine("🏆 Gratulujeme! Získali jste achievement: Jackpot - uhodnuto přesné číslo!");
             }
         }
+        public static void SeznamAch() 
+        {
+            foreach (var item in ach)
+            {
+                Console.WriteLine(ach.Key + "Vlastníte: " + item.Value.vlastni +); 
+            }
+        }
     }
 }
