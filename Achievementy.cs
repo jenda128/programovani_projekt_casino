@@ -22,14 +22,14 @@ namespace Achievementy
                 if (correctColorGuesses == 5 && !ach["Lucky Streak - 5x správná barva"])
                 {
                     ach["Lucky Streak - 5x správná barva"] = true;
-                    Console.WriteLine("🏆 Gratulujeme! Získali jste achievement: Lucky Streak - 5x správná barva!");
+                    Console.WriteLine(" Gratulujeme! Získali jste achievement: Lucky Streak - 5x správná barva!");
                 }
             }
 
             if (bet >= 1000 && !ach["High Roller - sázka 1000+ Kč"])
             {
                 ach["High Roller - sázka 1000+ Kč"] = true;
-                Console.WriteLine("🏆 Gratulujeme! Získali jste achievement: High Roller - sázka 1000+ Kč!");
+                Console.WriteLine(" Gratulujeme! Získali jste achievement: High Roller - sázka 1000+ Kč!");
             }
         }
 
@@ -38,15 +38,30 @@ namespace Achievementy
             if (!ach["Jackpot - uhodnuto přesné číslo"])
             {
                 ach["Jackpot - uhodnuto přesné číslo"] = true;
-                Console.WriteLine("🏆 Gratulujeme! Získali jste achievement: Jackpot - uhodnuto přesné číslo!");
+                Console.WriteLine(" Gratulujeme! Získali jste achievement: Jackpot - uhodnuto přesné číslo!");
             }
         }
-        public static void SeznamAch() 
+
+        
+        public static void ShowAchievements()
         {
-            foreach (var item in ach)
+            Console.WriteLine(" SPLNĚNÉ ACHIEVEMENTY ");
+            bool hasAchievements = false;
+            foreach (var achievement in ach)
             {
-                Console.WriteLine(ach.Key + "Vlastníte: " + item.Value.vlastni +); 
+                if (achievement.Value) 
+                {
+                    Console.WriteLine($" {achievement.Key}");
+                    hasAchievements = true;
+                }
             }
+
+            if (!hasAchievements)
+            {
+                Console.WriteLine("Žádné achievementy zatím nejsou splněné.");
+            }
+            Console.WriteLine(":)");
         }
+
     }
 }
