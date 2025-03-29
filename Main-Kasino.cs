@@ -7,6 +7,7 @@ using Baccarat;
 using oko-bere;
 using Ruleta;
 using Shop;
+usingAchievementy;
 namespace Kasino
 {
     class Program
