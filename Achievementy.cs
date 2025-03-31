@@ -9,7 +9,8 @@ namespace Achievementy
         {
             { "Lucky Streak - 5x správná barva", false },
             { "High Roller - sázka 1000+ Kč", false },
-            { "Jackpot - uhodnuto přesné číslo", false }
+            { "Jackpot - uhodnuto přesné číslo", false },
+            { "Lucky Hand - získání 21 bodů", false }
         };
 
         private static int correctColorGuesses = 0;
@@ -42,7 +43,15 @@ namespace Achievementy
             }
         }
 
-        
+        public static void LuckyHandAchievement()
+        {
+            if (!ach["Lucky Hand - získání 21 bodů"])
+            {
+                ach["Lucky Hand - získání 21 bodů"] = true;
+                Console.WriteLine(" Gratulujeme! Získali jste achievement: Lucky Hand - získání 21 bodů!");
+            }
+        }
+
         public static void ShowAchievements()
         {
             Console.WriteLine(" SPLNĚNÉ ACHIEVEMENTY ");
@@ -62,6 +71,5 @@ namespace Achievementy
             }
             Console.WriteLine(":)");
         }
-
     }
 }
