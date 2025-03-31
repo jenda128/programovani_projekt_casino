@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace Okobere {
+namespace Okobere
+{
     class OkobereHra
     {
         private Random rand = new Random();
         private string[] karty = { "7", "8", "9", "10", "J", "Q", "K", "A" };
+        private bool okoBerePowerUp = false; // Nová proměnná pro sledování, zda hráč použil power-up
 
         private int Hodnota(string karta)
         {
@@ -24,6 +26,22 @@ namespace Okobere {
         private void ZobrazKarty(List<string> hrac)
         {
             Console.WriteLine($"Tvoje karty: {string.Join(", ", hrac)} (skóre: {Skore(hrac)})");
+        }
+
+        // Funkce pro použití power-upu "OkoBere"
+        private void UseOkoBerePowerUp(List<string> hrac)
+        {
+            if (okoBerePowerUp)
+            {
+                string stejnaKarta = hrac[0]; // Získáme první kartu hráče
+                hrac.Add(stejnaKarta); // Přidáme stejnou kartu
+                Console.WriteLine($"Použil jsi power-up OkoBere! Tvoje nová karta: {stejnaKarta}");
+                okoBerePowerUp = false; // Power-up je spotřebován
+            }
+            else
+            {
+                Console.WriteLine("Nemáš power-up OkoBere.");
+            }
         }
 
         public void Okobere()
@@ -48,13 +66,20 @@ namespace Okobere {
                     if (skoreHrace == 21)
                     {
                         Console.WriteLine("Gratulace! Máš přesně 21 bodů!");
-                        Achievementy.CheckAchievements("luckyhand", 0, true);
+                        Achievementy.CheckAchievements("luckyhand", 0, true); // Achievement
                     }
 
                     if (skoreHrace > 21)
                     {
                         Console.WriteLine("Přetáhl jsi! Prohra.");
                         break;
+                    }
+
+                    // Možnost použít power-up
+                    Console.Write("Chceš použít power-up 'OkoBere' pro stejnou kartu? (a/n): ");
+                    if (Console.ReadLine().ToLower() == "a")
+                    {
+                        UseOkoBerePowerUp(hrac);
                     }
 
                     Console.Write("Táhneš? (a/n): ");
