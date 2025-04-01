@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Okobere
 {
-    class OkobereHra
+    class OkoBereHra
     {
         private Random rand = new Random();
         private string[] karty = { "7", "8", "9", "10", "J", "Q", "K", "A" };
@@ -44,7 +44,7 @@ namespace Okobere
             }
         }
 
-        public void Okobere()
+        public void OkoBere()
         {
             Console.WriteLine("Oko bere!");
             int balance = 100, sazka;
