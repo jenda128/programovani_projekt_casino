@@ -22,7 +22,9 @@ namespace Kasino
                     case "1":
                         if (items["Baccarat"].vlastni == true)
                         {                            
-                        balance = Baccarat.PlayBaccarat(balance);
+                            Baccarat BaccaratPlay = new Baccarat;
+                            balance = BaccaratPlay.PlayBaccarat(balance);
+                            //balance = Baccarat.PlayBaccarat(balance);
                         break;
                         }
                         else 
@@ -33,7 +35,8 @@ namespace Kasino
                         }
                     case "2":
                         if(items["Ruleta"].vlastni == true){
-                        balance = Ruleta.PlayRuleta(balance);
+                            Ruleta RuletaPlay = new Ruleta;
+                            balance = RuletaPlay.PlayRuleta(balance);
                         break;
                         }
                         else 
@@ -43,7 +46,8 @@ namespace Kasino
                             break;
                         }
                     case "3":                   
-                        balance = okoBereHra.OkoBere(balance);
+                        OkoBereHra OkoBerePlay = new OkoBereHra;
+                        balance = OkoBerePlay.OkoBere(balance);
                         break;
                     case "4":
                         Shop.ViewShop();
