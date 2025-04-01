@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Baccarat
 {
-    internal class Baccarat
+    class Baccarat
     {
         static void Pravidla() {
             Console.WriteLine("V Baccaratu hráč sází na hráče(Player), bankéře(Banker) nebo remízu(Tie).Hráč i bankéř dostanou dvě karty, přičemž cílem je mít hodnotu co nejblíže 9(10 + se počítá jen poslední číslice).");
