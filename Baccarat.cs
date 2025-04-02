@@ -65,7 +65,7 @@ namespace Baccarat
             {
                 if (predikce == "hrac")
                 {
-                    return (sazka);
+                    return sazka;
                 }
                 else if (predikce != "hrac")
                 {
@@ -81,7 +81,7 @@ namespace Baccarat
                 }
                 else if(predikce !="banker")
                 {
-                    return (sazka);
+                    return sazka;
                 }
             }
             //treti karta pro hrace
@@ -146,7 +146,7 @@ namespace Baccarat
             {
                 if(predikce == "hrac")
                 {
-                    return (sazka);
+                    return sazka;
                 }
                 else
                 {
@@ -166,15 +166,14 @@ namespace Baccarat
                 }
             }
             Console.WriteLine("chyba");
-            return (0);
+            return 0;
 
 
         }
 
-        static double PlayBaccarat(double Balance)
+        static double PlayBaccarat(double balance)
         {
-            double staraBalance = 100;
-            double Balance = 100;
+            double starabalance = balance;
             Console.WriteLine("Pro Pravidla hry napište: Pravidla");
             Console.WriteLine("Pro hraní hry napište: Hra");
             while (true) {
@@ -189,7 +188,7 @@ namespace Baccarat
                     while (true) {
                         if (int.TryParse(Console.ReadLine(), out double input))
                         {
-                            if (input <= Balance)
+                            if (input <= balance)
                             {
                                 Console.WriteLine("Teď napište na koho sázíte");
                                 while (true)
@@ -200,15 +199,15 @@ namespace Baccarat
                                     string predikce = Console.ReadLine();
                                     if (predikce == "hrac" || predikce == "banker" || predikce == "remiza")
                                     {
-                                        staraBalance = Balance;
-                                        Balance += HraBaccarat(input, predikce);
-                                        if (Balance > staraBalance)
+                                        starabalance = balance;
+                                        balance += HraBaccarat(input, predikce);
+                                        if (balance > starabalance)
                                         {
-                                            Console.WriteLine("Vyhráli jste váš nový zbytek je: "+Balance);
+                                            Console.WriteLine("Vyhráli jste váš nový zbytek je: "+balance);
                                         }
                                         else
                                         {
-                                            Console.WriteLine("Prohráli jste váš nový zbytek je: "+Balance);
+                                            Console.WriteLine("Prohráli jste váš nový zbytek je: "+balance);
                                         }
                                     }
                                     else if (predikce == "exit")
@@ -224,9 +223,9 @@ namespace Baccarat
                             }
                             else 
                             {
-                                Console.WriteLine("Zadali jste větší hodnotu než právě teď vlastníte. Právě teď vám zbývá:" + Balance);
+                                Console.WriteLine("Zadali jste větší hodnotu než právě teď vlastníte. Právě teď vám zbývá:" + balance);
                                 Console.WriteLine("Pokud si nepřejete pokračovat napište exit");
-                                Console.WriteLine("Pokud stále chcete pokračovat napište částku menší nebo rovnou" + Balance);
+                                Console.WriteLine("Pokud stále chcete pokračovat napište částku menší nebo rovnou" + balance);
                             }
                             
                         }
@@ -244,8 +243,8 @@ namespace Baccarat
                 }
                 else if (lobbyInput == "exit")
                 {
-                    Console.WriteLine("odcházíte se zbytkem: " + Balance);
-                    return(Balance);
+                    Console.WriteLine("odcházíte se zbytkem: " + balance);
+                    return balance;
                 }
                 else 
                 { 

@@ -44,15 +44,15 @@ namespace Okobere
             }
         }
 
-        public void OkoBere()
+        public void OkoBere(double balance)
         {
             Console.WriteLine("Oko bere!");
-            int balance = 100, sazka;
+            string sazka = Console.ReadLine();
 
             while (balance > 0)
             {
                 Console.Write($"Kolik vsadíš? (max {balance}, 0 = konec): ");
-                if (!int.TryParse(Console.ReadLine(), out sazka) || sazka <= 0 || sazka > balance) continue;
+                if (!double.TryParse(Console.ReadLine(), out sazka) || sazka <= 0 || sazka > balance) continue;
                 balance -= sazka;
 
                 List<string> hrac = new List<string> { karty[rand.Next(karty.Length)] };
