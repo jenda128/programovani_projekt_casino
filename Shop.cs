@@ -62,7 +62,7 @@ public Shop(double initialBalance)
                     {
                         balance -= cena;
                         items[input] = (cena, true);
-                        Console.WriteLine("koupili jste: " + input + "zbívá vám: " + balance + " chechtáků");
+                        Console.WriteLine("koupili jste: " + input + " zbívá vám: " + balance + " chechtáků");
                     }
                 }
                 else if (input == "exit")

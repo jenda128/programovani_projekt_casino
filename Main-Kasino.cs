@@ -20,7 +20,7 @@ namespace Kasino
                 switch (input)
                 {
                     case "1":
-                        if (items["Baccarat"].vlastni == true)
+                        if (Shop.Shop.items["Baccarat"].vlastni == true)
                         {                            
                             Baccarat BaccaratPlay = new Baccarat();
                             balance = BaccaratPlay.PlayBaccarat(balance);
@@ -34,7 +34,7 @@ namespace Kasino
                             break;
                         }
                     case "2":
-                        if(items["Ruleta"].vlastni == true){
+                        if(Shop.Shop.items["Ruleta"].vlastni == true){
                             Ruleta RuletaPlay = new Ruleta();
                             balance = RuletaPlay.PlayRuleta(balance);
                         break;
@@ -50,7 +50,8 @@ namespace Kasino
                         balance = OkoBerePlay.OkoBere(balance);
                         break;
                     case "4":
-                        balance = Shop.ViewShop(balance);
+                        shop.Shop shop = new Shop.Shop();
+                        balance = shop.ViewShop(balance);
                         break;
                     case "5": 
                         Achievementy.ShowAchievements();
