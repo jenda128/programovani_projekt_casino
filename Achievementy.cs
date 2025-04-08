@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Achievementy
 {
-    public static class Achievementy
+    public static class AchievementyClass
     {
         public static Dictionary<string, bool> ach = new Dictionary<string, bool>
         {

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Baccarat
 {
-    class Baccarat
+    class BaccaratClass
     {
         static void Pravidla() {
             Console.WriteLine("V Baccaratu hráč sází na hráče(Player), bankéře(Banker) nebo remízu(Tie).Hráč i bankéř dostanou dvě karty, přičemž cílem je mít hodnotu co nejblíže 9(10 + se počítá jen poslední číslice).");
@@ -171,10 +171,10 @@ namespace Baccarat
 
         }
 
-        static double PlayBaccarat(double Balance)
+        public double PlayBaccarat(double balance)
         {
-            double staraBalance = 100;
-            double Balance = 100;
+            double starabalance = balance;
+            int input = 0;
             Console.WriteLine("Pro Pravidla hry napište: Pravidla");
             Console.WriteLine("Pro hraní hry napište: Hra");
             while (true) {
@@ -187,9 +187,9 @@ namespace Baccarat
 
                     Console.WriteLine("Napište hodnotu kterou chcete vsadit");
                     while (true) {
-                        if (int.TryParse(Console.ReadLine(), out double input))
+                        if (int.TryParse(Console.ReadLine(), out input))
                         {
-                            if (input <= Balance)
+                            if (input <= balance)
                             {
                                 Console.WriteLine("Teď napište na koho sázíte");
                                 while (true)
@@ -200,15 +200,15 @@ namespace Baccarat
                                     string predikce = Console.ReadLine();
                                     if (predikce == "hrac" || predikce == "banker" || predikce == "remiza")
                                     {
-                                        staraBalance = Balance;
-                                        Balance += HraBaccarat(input, predikce);
-                                        if (Balance > staraBalance)
+                                        starabalance = balance;
+                                        balance += HraBaccarat(input, predikce);
+                                        if (balance > starabalance)
                                         {
-                                            Console.WriteLine("Vyhráli jste váš nový zbytek je: "+Balance);
+                                            Console.WriteLine("Vyhráli jste váš nový zbytek je: " + balance);
                                         }
                                         else
                                         {
-                                            Console.WriteLine("Prohráli jste váš nový zbytek je: "+Balance);
+                                            Console.WriteLine("Prohráli jste váš nový zbytek je: " + balance);
                                         }
                                     }
                                     else if (predikce == "exit")
@@ -224,9 +224,9 @@ namespace Baccarat
                             }
                             else 
                             {
-                                Console.WriteLine("Zadali jste větší hodnotu než právě teď vlastníte. Právě teď vám zbývá:" + Balance);
+                                Console.WriteLine("Zadali jste větší hodnotu než právě teď vlastníte. Právě teď vám zbývá:" + balance);
                                 Console.WriteLine("Pokud si nepřejete pokračovat napište exit");
-                                Console.WriteLine("Pokud stále chcete pokračovat napište částku menší nebo rovnou" + Balance);
+                                Console.WriteLine("Pokud stále chcete pokračovat napište částku menší nebo rovnou" + balance);
                             }
                             
                         }
@@ -244,8 +244,8 @@ namespace Baccarat
                 }
                 else if (lobbyInput == "exit")
                 {
-                    Console.WriteLine("odcházíte se zbytkem: " + Balance);
-                    return(Balance);
+                    Console.WriteLine("odcházíte se zbytkem: " + balance);
+                    return(balance);
                 }
                 else 
                 { 

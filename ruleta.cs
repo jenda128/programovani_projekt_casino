@@ -4,12 +4,11 @@ using System.Threading;
 using Achievementy; 
 namespace Ruleta
 {
-    class Ruleta
+    class RuletaClass
     {
-        public double PlayRuleta()
+        public double PlayRuleta(double balance)
         {
             Random random = new Random();
-            int balance = 1000;
             HashSet<int> redNumbers = new HashSet<int> { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
 
             while (true)
@@ -31,7 +30,7 @@ namespace Ruleta
                 if (betType == 3)
                 {
                     Console.WriteLine("Děkujeme za hru! ");
-                    break;
+                    return balance;
                 }
 
                 int bet;
@@ -78,7 +77,7 @@ namespace Ruleta
                     int winnings = bet * 35;
                     balance += winnings;
                     Console.WriteLine($"  Gratulujeme! Vyhráli jste {winnings} Kč!");
-                    Achievementy.JackpotAchievement(); 
+                    Achievementy.AchievementyClass.JackpotAchievement(); 
                     won = true;
                 }
                 else if (betType == 2 && playerColor == winningColor)
@@ -94,12 +93,12 @@ namespace Ruleta
                     Console.WriteLine(" Bohužel jste prohráli. :(");
                 }
 
-                Achievementy.CheckAchievements(betType == 1 ? "number" : "color", bet, won);
+                Achievementy.AchievementyClass.CheckAchievements(betType == 1 ? "number" : "color", bet, won);
 
                 if (balance <= 0)
                 {
                     Console.WriteLine(" Nemáte dostatek peněz. Konec hry.");
-                    break;
+                    return 0;
                 }
 
                 Console.WriteLine("Stiskněte ENTER pro další kolo...");

@@ -19,12 +19,20 @@ namespace Kasino
 
                 switch (input)
                 {
+                    case null:
+                    Console.WriteLine("1 - Baccarat");
+                    Console.WriteLine("2 - Ruleta");
+                    Console.WriteLine("3 - Oko Bere");
+                    Console.WriteLine("4 - Shop");
+                    Console.WriteLine("5 - Achievementy");
+                    Console.WriteLine("exit - Konec");
+                    Console.Write("Zadejte číslo hry: ");
+                    break;
                     case "1":
-                        if (items["Baccarat"].vlastni == true)
+                        if (Shop.ShopClass.items["Baccarat"].vlastni == true)
                         {                            
-                            Baccarat BaccaratPlay = new Baccarat;
+                            Baccarat.BaccaratClass BaccaratPlay = new Baccarat.BaccaratClass();
                             balance = BaccaratPlay.PlayBaccarat(balance);
-                            //balance = Baccarat.PlayBaccarat(balance);
                         break;
                         }
                         else 
@@ -34,8 +42,8 @@ namespace Kasino
                             break;
                         }
                     case "2":
-                        if(items["Ruleta"].vlastni == true){
-                            Ruleta RuletaPlay = new Ruleta;
+                        if(Shop.ShopClass.items["Ruleta"].vlastni == true){
+                            Ruleta.RuletaClass RuletaPlay = new Ruleta.RuletaClass();
                             balance = RuletaPlay.PlayRuleta(balance);
                         break;
                         }
@@ -46,14 +54,16 @@ namespace Kasino
                             break;
                         }
                     case "3":                   
-                        OkoBereHra OkoBerePlay = new OkoBereHra;
-                        balance = OkoBerePlay.OkoBere(balance);
+                        Okobere.OkoBereClass OkoBerePlay = new Okobere.OkoBereClass();
+                        balance = OkoBerePlay.PlayOkoBere(balance);
                         break;
                     case "4":
-                        Shop.ViewShop();
+                        Shop.ShopClass ShopView = new Shop.ShopClass();
+                        balance = ShopView.ViewShop();
                         break;
                     case "5": 
-                        Achievementy.ShowAchievements();
+                        
+                        Achievementy.AchievementyClass.ShowAchievements();
                         break;
                     case "exit":
                         Console.WriteLine("Jste si opravdu jistí?");
@@ -73,6 +83,7 @@ namespace Kasino
                 Console.Write("Zadejte výběr: ");
                 Console.WriteLine("enter - napište pokud chcete do kasína");
                 Console.WriteLine("exit - napište pokud chcete odejít");
+
                 switch (Console.ReadLine()) 
                 {
                     case "enter":

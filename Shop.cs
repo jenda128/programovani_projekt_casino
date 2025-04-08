@@ -2,7 +2,7 @@ namespace Shop
 {
 
 
-    class Shop
+    class ShopClass
     {
         /*generovane chatgpt:
 private double balance;

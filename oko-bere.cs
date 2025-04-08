@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Okobere
 {
-    class OkoBereHra
+    class OkoBereClass
     {
         private Random rand = new Random();
         private string[] karty = { "7", "8", "9", "10", "J", "Q", "K", "A" };
@@ -44,11 +44,10 @@ namespace Okobere
             }
         }
 
-        public void OkoBere()
+        public double PlayOkoBere(double balance)
         {
             Console.WriteLine("Oko bere!");
-            int balance = 100, sazka;
-
+            int sazka = 0;
             while (balance > 0)
             {
                 Console.Write($"Kolik vsadíš? (max {balance}, 0 = konec): ");
@@ -66,7 +65,7 @@ namespace Okobere
                     if (skoreHrace == 21)
                     {
                         Console.WriteLine("Gratulace! Máš přesně 21 bodů!");
-                        Achievementy.CheckAchievements("luckyhand", 0, true); // Achievement
+                        Achievementy.AchievementyClass.CheckAchievements("luckyhand", 0, true); // Achievement
                     }
 
                     if (skoreHrace > 21)
