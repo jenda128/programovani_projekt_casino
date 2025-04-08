@@ -20,7 +20,6 @@ public Shop(double initialBalance)
         { "Poker", (1500, false) } // Můžeš jednoduše přidávat další věci
     };*/
         //tbh s timhle kodem mi pomohl chat gpt protoze jsem si uz vubec nepamatoval jak se pracuje se slovnikem
-        public double balance;
         //dictionary jsem delal s chatgpt
         public static Dictionary<string, (int cena, bool vlastni)> items { get; private set; } = new Dictionary<string, (int, bool)>
         {
@@ -31,7 +30,7 @@ public Shop(double initialBalance)
 
         };
 
-        public double ViewShop()
+        public double ViewShop(double balance)
         {
             Console.WriteLine("Vítejte v shopu");
             while (true)
@@ -63,12 +62,12 @@ public Shop(double initialBalance)
                     {
                         balance -= cena;
                         items[input] = (cena, true);
-                        Console.WriteLine("koupili jste: " + input + "zbívá vám: " + balance + " chechtáků");
+                        Console.WriteLine("koupili jste: " + input + " zbívá vám: " + balance + " chechtáků");
                     }
                 }
                 else if (input == "exit")
                 {
-                    return (balance);
+                    return balance;
                 }
                 else
                 {

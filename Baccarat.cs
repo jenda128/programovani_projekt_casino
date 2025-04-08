@@ -65,7 +65,7 @@ namespace Baccarat
             {
                 if (predikce == "hrac")
                 {
-                    return (sazka);
+                    return sazka;
                 }
                 else if (predikce != "hrac")
                 {
@@ -81,7 +81,7 @@ namespace Baccarat
                 }
                 else if(predikce !="banker")
                 {
-                    return (sazka);
+                    return sazka;
                 }
             }
             //treti karta pro hrace
@@ -146,7 +146,7 @@ namespace Baccarat
             {
                 if(predikce == "hrac")
                 {
-                    return (sazka);
+                    return sazka;
                 }
                 else
                 {
@@ -166,7 +166,7 @@ namespace Baccarat
                 }
             }
             Console.WriteLine("chyba");
-            return (0);
+            return 0;
 
 
         }
@@ -245,7 +245,7 @@ namespace Baccarat
                 else if (lobbyInput == "exit")
                 {
                     Console.WriteLine("odcházíte se zbytkem: " + balance);
-                    return(balance);
+                    return balance;
                 }
                 else 
                 { 

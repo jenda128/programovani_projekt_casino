@@ -59,7 +59,7 @@ namespace Kasino
                         break;
                     case "4":
                         Shop.ShopClass ShopView = new Shop.ShopClass();
-                        balance = ShopView.ViewShop();
+                        balance = ShopView.ViewShop(balance);
                         break;
                     case "5": 
                         
