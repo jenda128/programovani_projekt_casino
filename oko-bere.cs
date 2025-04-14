@@ -110,6 +110,7 @@ namespace Okobere
                 Console.WriteLine($"Zůstatek: {balance} Kč");
             }
             Console.WriteLine("Nemáš žádné peníze! Konec hry.");
+            return balance
         }
     }
 }
