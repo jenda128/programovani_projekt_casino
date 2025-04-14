@@ -47,6 +47,7 @@ namespace Okobere
         public double PlayOkoBere(double balance)
         {
             Console.WriteLine("Oko bere!");
+            okoBerePowerUp = Shop.ShopClass.items["Power-Up - OkoBere"].vlastni;
             int sazka = 0;
             while (balance > 0)
             {
