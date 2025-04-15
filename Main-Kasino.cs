@@ -12,12 +12,12 @@ namespace Kasino
 {
     class Program
     {
-        static double Vyber(double balance, string input) 
+        static double Vyber(double balance) 
         {
             
             while(true){
 
-                switch (input)
+                switch (Console.ReadLine())
                 {
                     case null:
                     Console.WriteLine("1 - Baccarat");
@@ -95,11 +95,11 @@ namespace Kasino
                     Console.WriteLine("5 - Achievementy");
                     Console.WriteLine("exit - Konec");
                     Console.Write("Zadejte číslo hry: ");
-                    balance = Vyber(balance, Console.ReadLine());
+                    balance = Vyber(balance);
                     break;
                     case "exit":
                     Console.WriteLine("Odcházíte z kasina, mějte se!");
-                    break;
+                    return;
                     default: 
                     Console.WriteLine("neplatný vstup");
                     break;

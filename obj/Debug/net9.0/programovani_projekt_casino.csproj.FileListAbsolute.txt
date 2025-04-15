@@ -3,3 +3,18 @@ C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\D
 C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.AssemblyInfo.cs
 C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.csproj.CoreCompileInputs.cache
 C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.sourcelink.json
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\bin\Debug\net9.0\programovani_projekt_casino.exe
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\bin\Debug\net9.0\programovani_projekt_casino.deps.json
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\bin\Debug\net9.0\programovani_projekt_casino.runtimeconfig.json
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\bin\Debug\net9.0\programovani_projekt_casino.dll
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\bin\Debug\net9.0\programovani_projekt_casino.pdb
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.AssemblyInfoInputs.cache
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.AssemblyInfo.cs
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.csproj.CoreCompileInputs.cache
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.sourcelink.json
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.dll
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\refint\programovani_projekt_casino.dll
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.pdb
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\programovani_projekt_casino.genruntimeconfig.cache
+C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\obj\Debug\net9.0\ref\programovani_projekt_casino.dll

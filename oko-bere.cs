@@ -48,7 +48,7 @@ namespace Okobere
         {
             Console.WriteLine("Oko bere!");
             okoBerePowerUp = Shop.ShopClass.items["Power-Up - OkoBere"].vlastni;
-            int sazka = 0;
+            double sazka = 0;
             while (balance > 0)
             {
                 Console.Write($"Kolik vsadíš? (max {balance}, 0 = konec): ");
