@@ -42,7 +42,7 @@ public Shop(double initialBalance)
                 }*/
                 foreach (var item in items)
                 {
-                    Console.WriteLine(item.Key + "Vlastníte: " + item.Value.vlastni + " Cena: " + item.Value.cena);
+                    Console.WriteLine(item.Key + " Vlastníte: " + item.Value.vlastni + " Cena: " + item.Value.cena);
                 }
                 Console.WriteLine("Napište název hry nebo power-upu, který chcete koupit, nebo 'exit' pro odchod.");
                 //items.ContainsKey(input)

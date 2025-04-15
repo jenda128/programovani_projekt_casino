@@ -16,18 +16,15 @@ namespace Kasino
         {
             
             while(true){
-
+                Console.WriteLine("1 - Baccarat");
+                Console.WriteLine("2 - Ruleta");
+                Console.WriteLine("3 - Oko Bere");
+                Console.WriteLine("4 - Shop");
+                Console.WriteLine("5 - Achievementy");
+                Console.WriteLine("exit - Konec");
+                Console.Write("Zadejte číslo hry: ");
                 switch (Console.ReadLine())
                 {
-                    case null:
-                    Console.WriteLine("1 - Baccarat");
-                    Console.WriteLine("2 - Ruleta");
-                    Console.WriteLine("3 - Oko Bere");
-                    Console.WriteLine("4 - Shop");
-                    Console.WriteLine("5 - Achievementy");
-                    Console.WriteLine("exit - Konec");
-                    Console.Write("Zadejte číslo hry: ");
-                    break;
                     case "1":
                         if (Shop.ShopClass.items["Baccarat"].vlastni == true)
                         {                            
@@ -70,7 +67,7 @@ namespace Kasino
                         return(balance);
                     default:
                         Console.WriteLine("Neplatná volba, zkuste to znovu.");
-                        Console.WriteLine("Pokud si přejete odejít napište: exit");
+                        Console.WriteLine("Možnosti:");
                         break;
                 }
             }
@@ -88,13 +85,6 @@ namespace Kasino
                 {
                     case "enter":
                     Console.WriteLine("Vítejte v kasinu! Vyberte si hru:");
-                    Console.WriteLine("1 - Baccarat");
-                    Console.WriteLine("2 - Ruleta");
-                    Console.WriteLine("3 - Oko Bere");
-                    Console.WriteLine("4 - Shop");
-                    Console.WriteLine("5 - Achievementy");
-                    Console.WriteLine("exit - Konec");
-                    Console.Write("Zadejte číslo hry: ");
                     balance = Vyber(balance);
                     break;
                     case "exit":
