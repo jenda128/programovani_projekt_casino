@@ -6,14 +6,14 @@ namespace Shop
     {
         /*generovane chatgpt:
 private double balance;
-private Dictionary<string, (int cena, bool vlastni)> items;
+private Dictionary<string, (int cena, bool vlastni)> ShopItems;
 
 public Shop(double initialBalance)
 {
     balance = initialBalance;
 
     // Seznam věcí, které lze koupit (název → cena, zda je hráč vlastní)
-    items = new Dictionary<string, (int, bool)>
+    ShopItems = new Dictionary<string, (int, bool)>
     {
         { "Baccarat", (1000, false) },
         { "Ruleta", (1200, false) },
@@ -21,11 +21,12 @@ public Shop(double initialBalance)
     };*/
         //tbh s timhle kodem mi pomohl chat gpt protoze jsem si uz vubec nepamatoval jak se pracuje se slovnikem
         //dictionary jsem delal s chatgpt
-        public static Dictionary<string, (int cena, bool vlastni)> items { get; private set; } = new Dictionary<string, (int, bool)>
+        public static Dictionary<string, (int cena, bool vlastni)> ShopItems { get; private set; } = new Dictionary<string, (int, bool)>
         {
             { "Baccarat", (1000, false) },
             { "Ruleta", (1200, false) },//tady pridejte svoje polozky ve stejnym formatu jako bacarat a ruleta
-            { "Power-Up - OkoBere", (500, false) }
+            { "Power-Up - OkoBere", (500, false) },
+            { "Power-Up - Baccarat", (700, false) }
 
 
         };
@@ -35,21 +36,21 @@ public Shop(double initialBalance)
             Console.WriteLine("Vítejte v shopu");
             while (true)
             {
-                /*taky chatgpt:foreach (var item in items)
+                /*taky chatgpt:foreach (var item in ShopItems)
                 {
                     string stav = item.Value.vlastni ? "(Vlastní)" : $"- {item.Value.cena} chechtáků";
                     Console.WriteLine($"{item.Key}: {stav}");
                 }*/
-                foreach (var item in items)
+                foreach (var item in ShopItems)
                 {
                     Console.WriteLine(item.Key + " Vlastníte: " + item.Value.vlastni + " Cena: " + item.Value.cena);
                 }
                 Console.WriteLine("Napište název hry nebo power-upu, který chcete koupit, nebo 'exit' pro odchod.");
-                //items.ContainsKey(input)
+                //ShopItems.ContainsKey(input)
                 string input = Console.ReadLine();
-                if (items.ContainsKey(input))
+                if (ShopItems.ContainsKey(input))
                 {
-                    var (cena, vlastni) = items[input];
+                    var (cena, vlastni) = ShopItems[input];
                     if (vlastni == true)
                     {
                         Console.WriteLine("Tuto hru nebo power-up už vlastníte");
@@ -61,7 +62,7 @@ public Shop(double initialBalance)
                     else
                     {
                         balance -= cena;
-                        items[input] = (cena, true);
+                        ShopItems[input] = (cena, true);
                         Console.WriteLine("koupili jste: " + input + " zbívá vám: " + balance + " chechtáků");
                     }
                 }

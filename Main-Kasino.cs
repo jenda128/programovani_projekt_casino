@@ -26,7 +26,7 @@ namespace Kasino
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        if (Shop.ShopClass.items["Baccarat"].vlastni == true)
+                        if (Shop.ShopClass.ShopItems["Baccarat"].vlastni == true)
                         {                            
                             Baccarat.BaccaratClass BaccaratPlay = new Baccarat.BaccaratClass();
                             balance = BaccaratPlay.PlayBaccarat(balance);
@@ -39,7 +39,7 @@ namespace Kasino
                             break;
                         }
                     case "2":
-                        if(Shop.ShopClass.items["Ruleta"].vlastni == true){
+                        if(Shop.ShopClass.ShopItems["Ruleta"].vlastni == true){
                             Ruleta.RuletaClass RuletaPlay = new Ruleta.RuletaClass();
                             balance = RuletaPlay.PlayRuleta(balance);
                         break;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Shop;
 
 namespace Okobere
 {
@@ -31,16 +32,23 @@ namespace Okobere
         // Funkce pro použití power-upu "OkoBere"
         private void UseOkoBerePowerUp(List<string> hrac)
         {
-            if (okoBerePowerUp)
-            {
-                string stejnaKarta = hrac[0]; // Získáme první kartu hráče
-                hrac.Add(stejnaKarta); // Přidáme stejnou kartu
-                Console.WriteLine($"Použil jsi power-up OkoBere! Tvoje nová karta: {stejnaKarta}");
-                okoBerePowerUp = false; // Power-up je spotřebován
+            if(Shop.ShopClass.ShopItems["Power-Up - OkoBere"].vlastni) {
+                if (okoBerePowerUp)
+                {
+                    string stejnaKarta = hrac[0]; // Získáme první kartu hráče
+                    hrac.Add(stejnaKarta); // Přidáme stejnou kartu
+                    Console.WriteLine($"Použil jsi power-up OkoBere! Tvoje nová karta: {stejnaKarta}");
+                    okoBerePowerUp = false; // Power-up je spotřebován
+                }
+                else
+                {
+                    Console.WriteLine("Nemáš power-up OkoBere.");
+                }
             }
-            else
+            else 
             {
-                Console.WriteLine("Nemáš power-up OkoBere.");
+                Console.WriteLine("Nevlastníte Power-up.");
+                Console.WriteLine("Můžete ho zakoupit v shopu.")
             }
         }
 
