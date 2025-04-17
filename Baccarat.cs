@@ -10,7 +10,7 @@ namespace Baccarat
             Console.WriteLine("-2–9 = nominální hodnota");
             Console.WriteLine("-10, J, Q, K = 0");
             Console.WriteLine("-A = 1");
-            Console.WriteLine("Pro vaše pohodlí rovnou převádíme všechny karty na čísla a sčítáme je takže uvidíte pokaždé rouvnou součet karet bankéře a hráče");
+            Console.WriteLine("Pro vaše pohodlí rovnou převádíme všechny karty na čísla a sčítáme je, takže uvidíte pokaždé rouvnou součet karet bankéře a hráče");
             Console.WriteLine();
             Console.WriteLine("Hráč líže podle svého součtu:");
             Console.WriteLine("- 1-2-3-4-5-10 → líže třetí kartu");
@@ -29,6 +29,95 @@ namespace Baccarat
             Console.WriteLine("Pokud hráč nelíže třetí kartu, bankéř stojí na 6.");
             return;
         }
+
+        static double vyhralNaNatural (string predikce, int soucetHrace, int soucetBankere) 
+        {
+            //pokud remiza
+            if (soucetHrace > 7 && soucetBankere > 7 && predikce == "remiza")
+            {
+                return (sazka * 8);
+            }
+            else if (soucetHrace > 7 && soucetBankere > 7 && predikce != "remiza")
+            {
+                return (sazka * -1);
+            }
+            //pokud hrac vyhralNaNatural
+            else if (soucetHrace > 7)
+            {
+                if (predikce == "hrac")
+                {
+                    return sazka;
+                }
+                else if (predikce != "hrac")
+                {
+                    return (sazka*-1);
+                }
+            }
+            //pokud banker vyhralNaNatural
+            else if (soucetBankere > 7)
+            {
+                if (predikce == "banker")
+                {
+                    return (sazka*0.95);
+                }
+                else if(predikce !="banker")
+                {
+                    return sazka;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        static double vyhralPo3Karte(string predikce, int soucetHrace, int soucetBankere)
+        {
+            if (vyhralNaNatural(predikce, soucetHrace, soucetBankere) != 0)
+            {
+            return(vyhralNaNatural(predikce, soucetHrace, soucetBankere));
+            }
+            else 
+            {
+                //pokud remiza po 3. kartach
+                if (soucetBankere == soucetHrace)
+                {
+                    if (predikce == "remiza")
+                    {
+                        return (sazka * 8);
+                    }
+                    else { return (sazka * -1); }
+                }
+                //pokud hrac vyhral po 3.kartach
+                else if (soucetHrace > soucetBankere)
+                {
+                    if(predikce == "hrac")
+                    {
+                        return sazka;
+                    }
+                    else
+                    {
+                        return (sazka * -1);
+                    }
+                }
+                //pokud banker vyhral po 3. kartach
+                else if (soucetBankere > soucetHrace)
+                {
+                    if (predikce == "banker")
+                    {
+                        return (sazka*0.95);
+                    }
+                    else
+                    {
+                        return (sazka * -1);
+                    }
+                }
+                else {
+                Console.WriteLine("chyba");
+                return 0;
+                }
+            }
+        }
+
         static double HraBaccarat(double sazka, string predikce) 
         {            
             Random rnd = new Random();
@@ -48,42 +137,12 @@ namespace Baccarat
             }
             Console.WriteLine("Hráčova první karta: " + kartaHrace1 + " Hrářova druhá karta: " + kartaHrace2 + " součet hráčovích prvních dvou karet: " + soucetHrace);
             Console.WriteLine("Bankéřova první karta: " + kartaBanekere1 + " Bankéřova druhá karta: " + kartaBankere2 + " součet bankéřovích prvních dvou karet: " + soucetBankere);
+            if (vyhralNaNatural(predikce, soucetHrace, soucetBankere) != 0)
+            {
+            return(vyhralNaNatural(predikce, soucetHrace, soucetBankere));
+            }
 
-
-
-            //pokud remiza v prvnim kole
-            if (soucetHrace > 7 && soucetBankere > 7 && predikce == "remiza")
-            {
-                return (sazka * 8);
-            }
-            else if (soucetHrace > 7 && soucetBankere > 7 && predikce != "remiza")
-            {
-                return (sazka * -1);
-            }
-            //pokud hrac vyhral v prvnim kole
-            else if (soucetHrace > 7)
-            {
-                if (predikce == "hrac")
-                {
-                    return sazka;
-                }
-                else if (predikce != "hrac")
-                {
-                    return (sazka*-1);
-                }
-            }
-            //pokud banker vyhral v prnim kole
-            else if (soucetBankere > 7)
-            {
-                if (predikce == "banker")
-                {
-                    return (sazka*0.95);
-                }
-                else if(predikce !="banker")
-                {
-                    return sazka;
-                }
-            }
+            
             //treti karta pro hrace
             int kartaHrace3 = 0;
             bool bylaTretiKarta = false;
@@ -132,43 +191,7 @@ namespace Baccarat
             }
             Console.WriteLine("Hráčova třetí karta " + kartaHrace3 + " součet hráčovích karet: " + soucetHrace);
             Console.WriteLine("Bankéřova třetí karta " + kartaBankere3 + " součet bankéřovích karet: " + soucetBankere);
-            //pokud remiza po 3. kartach
-            if (soucetBankere == soucetHrace)
-            {
-                if (predikce == "remiza")
-                {
-                    return (sazka * 8);
-                }
-                else { return (sazka * -1); }
-            }
-            //pokud hrac vyhral po 3.kartach
-            if (soucetHrace > soucetBankere)
-            {
-                if(predikce == "hrac")
-                {
-                    return sazka;
-                }
-                else
-                {
-                    return (sazka * -1);
-                }
-            }
-            //pokud banker vyhral po 3. kartach
-            if (soucetBankere > soucetHrace)
-            {
-                if (predikce == "banker")
-                {
-                    return (sazka*0.95);
-                }
-                else
-                {
-                    return (sazka * -1);
-                }
-            }
-            Console.WriteLine("chyba");
-            return 0;
-
-
+            return vyhralPo3Karte(predikce, soucetHrace, soucetBankere);
         }
 
         public double PlayBaccarat(double balance)
