@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using System.Reflection;
+using Achievementy;
 
 namespace Baccarat
 {
@@ -225,6 +226,7 @@ namespace Baccarat
                                     {
                                         starabalance = balance;
                                         balance += HraBaccarat(input, predikce);
+                                        PrvniWinBac((starabalance-balance));
                                         if (balance > starabalance)
                                         {
                                             Console.WriteLine("Vyhráli jste váš nový zbytek je: " + balance);

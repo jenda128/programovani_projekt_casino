@@ -10,7 +10,8 @@ namespace Achievementy
             { "Lucky Streak - 5x správná barva", false },
             { "High Roller - sázka 1000+ Kč", false },
             { "Jackpot - uhodnuto přesné číslo", false },
-            { "Lucky Hand - získání 21 bodů", false }
+            { "Lucky Hand - získání 21 bodů", false },
+            { "První Výhra v Baccaratu", false}
         };
 
         private static int correctColorGuesses = 0;
@@ -52,6 +53,13 @@ namespace Achievementy
             }
         }
 
+        public static void PrvniWinBac (double vysledek) 
+        {
+            if (!ach["První Výhra v Baccaratu"]) {
+                ach["První Výhra v Baccaratu"] = true;
+                Console.WriteLine(" Gratulujeme! Získali jste achievement: První Výhra v Baccaratu")
+            }
+        }
         public static void ShowAchievements()
         {
             Console.WriteLine(" SPLNĚNÉ ACHIEVEMENTY ");
