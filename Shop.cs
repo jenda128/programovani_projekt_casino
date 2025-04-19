@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
 namespace Shop
 {
 
@@ -21,15 +24,31 @@ public Shop(double initialBalance)
     };*/
         //tbh s timhle kodem mi pomohl chat gpt protoze jsem si uz vubec nepamatoval jak se pracuje se slovnikem
         //dictionary jsem delal s chatgpt
-        public static Dictionary<string, (int cena, bool vlastni)> ShopItems { get; private set; } = new Dictionary<string, (int, bool)>
+        /* public static Dictionary<string, (int cena, bool vlastni)> ShopItems { get; private set; } = new Dictionary<string, (int, bool)>
         {
             { "Baccarat", (1000, false) },
             { "Ruleta", (1200, false) },//tady pridejte svoje polozky ve stejnym formatu jako bacarat a ruleta
             { "Power-Up - OkoBere", (500, false) },
             { "Power-Up - Baccarat", (700, false) }
+        }; */
+        public static Dictionary<string, (int cena, bool vlastni)> ShopItems = new Dictionary<string, (int, bool)>;¨
+        public static void LoadShopItems()
+        {
+            ShopItems.Clear();
+            string filePath = "ShopHodnoty.txt";
+            //copy paste shop hodnoty do textaku
+            //copilot:
+            foreach (string radek in File.ReadAllLines(filePath))
+            {
+                var parts = radek.Split(';');
+                if (parts.Length == 3 && int.TryParse(parts[1], out int cena) && bool.TryParse(parts[2], out bool vlastni))
+                {
+                ShopItems[parts[0]] = (cena, vlastni);
+                }
+            }
+        }
+        }
 
-
-        };
 
         public double ViewShop(double balance)
         {
@@ -68,6 +87,7 @@ public Shop(double initialBalance)
                 }
                 else if (input == "exit")
                 {
+                    File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + item.Value.cena + item.Value.vlastni)));
                     return balance;
                 }
                 else

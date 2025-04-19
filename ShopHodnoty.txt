@@ -1,0 +1,4 @@
+Baccarat 1000 false
+Ruleta 1200 false
+Power-Up-OkoBere 500 false
+Power-Up-Baccarat 700 false 

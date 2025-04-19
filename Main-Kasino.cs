@@ -3,6 +3,8 @@ using System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;//cteni textu
+using System.Text;//ukladani textu
 using Baccarat;
 using Okobere;
 using Ruleta;
@@ -59,8 +61,8 @@ namespace Kasino
                         balance = ShopView.ViewShop(balance);
                         break;
                     case "5": 
-                        
-                        Achievementy.AchievementyClass.ShowAchievements();
+                        Achievementy.AchievementyClass ShowAch = new Achievementy.AchievementyClass();
+                        ShowAch.ShowAchievements();
                         break;
                     case "exit":
                         Console.WriteLine("Jste si opravdu jistí?");
@@ -73,9 +75,35 @@ namespace Kasino
             }
 
         }
-        static void Main(string[] args)
+        static double LoadBalance()
         {
             double balance = 1000000;
+            try
+            {
+                using (StreamReader sr = new StreamReader("C:\\BalanceHodnota.txt"))
+                {
+                    if (double.TryParse(sr.ReadLine(), out double parsedBalance))
+                    {
+                        balance = parsedBalance;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Došlo k chybě při čtení souboru: {ex.Message}. Nastavuji výchozí hodnotu 1000000.");
+            }
+            return balance;
+        }   
+        static void Main(string[] args)
+        {
+            Shop.ShopClass.LoadShopItems() ShopLoad= new Shop.ShopClass.LoadShopItems();
+            Shop.ShopClass.LoadShopItems();
+            double balance = LoadBalance();
+            //copilot:
+            
+            
+
+            console.WriteLine("Pokud chcete Uložit všechny hodnoty, musíte odejít pomocí exit");
             while(true){
                 Console.Write("Zadejte výběr: ");
                 Console.WriteLine("enter - napište pokud chcete do kasína");

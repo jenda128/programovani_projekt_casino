@@ -32,7 +32,8 @@ namespace Okobere
         // Funkce pro použití power-upu "OkoBere"
         private void UseOkoBerePowerUp(List<string> hrac)
         {
-            if(Shop.ShopClass.ShopItems["Power-Up - OkoBere"].vlastni) {
+            if(Shop.ShopClass.ShopItems["Power-Up-OkoBere"].vlastni) 
+            {
                 if (okoBerePowerUp)
                 {
                     string stejnaKarta = hrac[0]; // Získáme první kartu hráče
@@ -55,7 +56,7 @@ namespace Okobere
         public double PlayOkoBere(double balance)
         {
             Console.WriteLine("Oko bere!");
-            okoBerePowerUp = Shop.ShopClass.items["Power-Up - OkoBere"].vlastni;
+            okoBerePowerUp = Shop.ShopClass.items["Power-Up-OkoBere"].vlastni;
             double sazka = 0;
             while (balance > 0)
             {
