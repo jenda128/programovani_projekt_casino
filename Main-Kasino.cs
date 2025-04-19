@@ -96,7 +96,6 @@ namespace Kasino
         }   
         static void Main(string[] args)
         {
-            Shop.ShopClass.LoadShopItems() ShopLoad= new Shop.ShopClass.LoadShopItems();
             Shop.ShopClass.LoadShopItems();
             double balance = LoadBalance();
             //copilot:
