@@ -8,11 +8,11 @@ namespace Shop
     class ShopClass
     {
         /*generovane chatgpt:
-private double balance;
-private Dictionary<string, (int cena, bool vlastni)> ShopItems;
+    private double balance;
+    private Dictionary<string, (int cena, bool vlastni)> ShopItems;
 
-public Shop(double initialBalance)
-{
+    public Shop(double initialBalance)
+    {
     balance = initialBalance;
 
     // Seznam věcí, které lze koupit (název → cena, zda je hráč vlastní)
@@ -24,6 +24,8 @@ public Shop(double initialBalance)
     };*/
         //tbh s timhle kodem mi pomohl chat gpt protoze jsem si uz vubec nepamatoval jak se pracuje se slovnikem
         //dictionary jsem delal s chatgpt
+
+
         /* public static Dictionary<string, (int cena, bool vlastni)> ShopItems { get; private set; } = new Dictionary<string, (int, bool)>
         {
             { "Baccarat", (1000, false) },
@@ -31,6 +33,7 @@ public Shop(double initialBalance)
             { "Power-Up - OkoBere", (500, false) },
             { "Power-Up - Baccarat", (700, false) }
         }; */
+        
         public static Dictionary<string, (int cena, bool vlastni)> ShopItems = new Dictionary<string, (int, bool)>;¨
         public static void LoadShopItems()
         {
