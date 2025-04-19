@@ -14,9 +14,9 @@ namespace Kasino
 {
     class Program
     {
+
         static double Vyber(double balance) 
         {
-            
             while(true){
                 Console.WriteLine("1 - Baccarat");
                 Console.WriteLine("2 - Ruleta");
@@ -32,6 +32,7 @@ namespace Kasino
                         {                            
                             Baccarat.BaccaratClass BaccaratPlay = new Baccarat.BaccaratClass();
                             balance = BaccaratPlay.PlayBaccarat(balance);
+                            File.WriteAllLines("BalanceHodnota.txt", balance);
                         break;
                         }
                         else 
@@ -44,6 +45,7 @@ namespace Kasino
                         if(Shop.ShopClass.ShopItems["Ruleta"].vlastni == true){
                             Ruleta.RuletaClass RuletaPlay = new Ruleta.RuletaClass();
                             balance = RuletaPlay.PlayRuleta(balance);
+                            File.WriteAllLines("BalanceHodnota.txt", balance);
                         break;
                         }
                         else 
@@ -54,11 +56,13 @@ namespace Kasino
                         }
                     case "3":                   
                         Okobere.OkoBereClass OkoBerePlay = new Okobere.OkoBereClass();
-                        balance = OkoBerePlay.PlayOkoBere(balance);
+                        balance = OkoBerePlay.PlayOkoBere(balance);                        
+                        File.WriteAllLines("BalanceHodnota.txt", balance);
                         break;
                     case "4":
                         Shop.ShopClass ShopView = new Shop.ShopClass();
-                        balance = ShopView.ViewShop(balance);
+                        balance = ShopView.ViewShop(balance);                        
+                        File.WriteAllLines("BalanceHodnota.txt", balance);
                         break;
                     case "5": 
                         Achievementy.AchievementyClass ShowAch = new Achievementy.AchievementyClass();

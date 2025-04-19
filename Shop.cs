@@ -50,7 +50,7 @@ namespace Shop
                 }
             }
         }
-        }
+    
 
 
         public double ViewShop(double balance)
@@ -85,12 +85,13 @@ namespace Shop
                     {
                         balance -= cena;
                         ShopItems[input] = (cena, true);
-                        Console.WriteLine("koupili jste: " + input + " zbívá vám: " + balance + " chechtáků");
+                        Console.WriteLine("koupili jste: " + input + " zbývá vám: " + balance + " chechtáků");
                     }
                 }
                 else if (input == "exit")
                 {
                     File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + item.Value.cena + item.Value.vlastni)));
+                    File.WriteAllLines("BalanceHodnota.txt", balance);
                     return balance;
                 }
                 else

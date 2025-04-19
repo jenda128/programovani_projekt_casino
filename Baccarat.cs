@@ -142,7 +142,8 @@ namespace Baccarat
             {
             return(vyhralNaNatural(predikce, soucetHrace, soucetBankere));
             }
-
+            
+            //File.WriteAllLines("BalanceHodnota.txt", balance);
             
             //treti karta pro hrace
             int kartaHrace3 = 0;
