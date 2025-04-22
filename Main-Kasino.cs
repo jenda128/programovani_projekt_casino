@@ -83,7 +83,7 @@ namespace Kasino
             double balance = 1000000;
             try
             {
-                using (StreamReader sr = new StreamReader("C:\\BalanceHodnota.txt"))
+                using (StreamReader sr = new StreamReader("BalanceHodnota.txt"))
                 {
                     if (double.TryParse(sr.ReadLine(), out double parsedBalance))
                     {
