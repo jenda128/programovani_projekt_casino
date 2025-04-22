@@ -53,6 +53,11 @@ namespace Baccarat
                 {
                     return (sazka*-1);
                 }
+                else 
+                {
+                    Console.WriteLine("chyba");
+                    return 0;
+                }
             }
             //pokud banker vyhralNaNatural
             else if (soucetBankere > 7)
@@ -65,13 +70,18 @@ namespace Baccarat
                 {
                     return sazka;
                 }
+                else 
+                {
+                    Console.WriteLine("chyba");
+                    return 0;
+                }
             }
             else
             {
                 return 0;
             }
         }
-        static double vyhralPo3Karte(string predikce, int soucetHrace, int soucetBankere)
+        static double vyhralPo3Karte(string predikce, int soucetHrace, int soucetBankere, double sazka)
         {
             if (vyhralNaNatural(predikce, soucetHrace, soucetBankere, sazka) != 0)
             {
@@ -193,7 +203,7 @@ namespace Baccarat
             }
             Console.WriteLine("Hráčova třetí karta " + kartaHrace3 + " součet hráčovích karet: " + soucetHrace);
             Console.WriteLine("Bankéřova třetí karta " + kartaBankere3 + " součet bankéřovích karet: " + soucetBankere);
-            return vyhralPo3Karte(predikce, soucetHrace, soucetBankere);
+            return vyhralPo3Karte(predikce, soucetHrace, soucetBankere, sazka);
         }
 
         public double PlayBaccarat(double balance)
@@ -227,7 +237,7 @@ namespace Baccarat
                                     {
                                         starabalance = balance;
                                         balance += HraBaccarat(input, predikce);
-                                        PrvniWinBac((starabalance-balance));
+                                        Achievementy.AchievementyClass.PrvniWinBac((starabalance-balance));
                                         if (balance > starabalance)
                                         {
                                             Console.WriteLine("Vyhráli jste váš nový zbytek je: " + balance);

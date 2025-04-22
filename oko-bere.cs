@@ -49,14 +49,14 @@ namespace Okobere
             else 
             {
                 Console.WriteLine("Nevlastníte Power-up.");
-                Console.WriteLine("Můžete ho zakoupit v shopu.")
+                Console.WriteLine("Můžete ho zakoupit v shopu.");
             }
         }
 
         public double PlayOkoBere(double balance)
         {
             Console.WriteLine("Oko bere!");
-            okoBerePowerUp = Shop.ShopClass.items["Power-Up-OkoBere"].vlastni;
+            okoBerePowerUp = Shop.ShopClass.ShopItems["Power-Up-OkoBere"].vlastni;
             double sazka = 0;
             while (balance > 0)
             {

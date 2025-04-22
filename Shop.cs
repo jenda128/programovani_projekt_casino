@@ -34,7 +34,7 @@ namespace Shop
             { "Power-Up - Baccarat", (700, false) }
         }; */
         
-        public static Dictionary<string, (int cena, bool vlastni)> ShopItems = new Dictionary<string, (int, bool)>;¨
+        public static Dictionary<string, (int cena, bool vlastni)> ShopItems = new Dictionary<string, (int, bool)>();
         public static void LoadShopItems()
         {
             ShopItems.Clear();
