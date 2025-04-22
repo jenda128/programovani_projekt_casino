@@ -31,7 +31,7 @@ namespace Baccarat
             return;
         }
 
-        static double vyhralNaNatural (string predikce, int soucetHrace, int soucetBankere) 
+        static double vyhralNaNatural (string predikce, int soucetHrace, int soucetBankere, double sazka) 
         {
             //pokud remiza
             if (soucetHrace > 7 && soucetBankere > 7 && predikce == "remiza")
@@ -73,9 +73,9 @@ namespace Baccarat
         }
         static double vyhralPo3Karte(string predikce, int soucetHrace, int soucetBankere)
         {
-            if (vyhralNaNatural(predikce, soucetHrace, soucetBankere) != 0)
+            if (vyhralNaNatural(predikce, soucetHrace, soucetBankere, sazka) != 0)
             {
-            return(vyhralNaNatural(predikce, soucetHrace, soucetBankere));
+            return(vyhralNaNatural(predikce, soucetHrace, soucetBankere, sazka));
             }
             else 
             {
@@ -138,9 +138,9 @@ namespace Baccarat
             }
             Console.WriteLine("Hráčova první karta: " + kartaHrace1 + " Hrářova druhá karta: " + kartaHrace2 + " součet hráčovích prvních dvou karet: " + soucetHrace);
             Console.WriteLine("Bankéřova první karta: " + kartaBanekere1 + " Bankéřova druhá karta: " + kartaBankere2 + " součet bankéřovích prvních dvou karet: " + soucetBankere);
-            if (vyhralNaNatural(predikce, soucetHrace, soucetBankere) != 0)
+            if (vyhralNaNatural(predikce, soucetHrace, soucetBankere, sazka) != 0)
             {
-            return(vyhralNaNatural(predikce, soucetHrace, soucetBankere));
+            return(vyhralNaNatural(predikce, soucetHrace, soucetBankere, sazka));
             }
             
             //File.WriteAllLines("BalanceHodnota.txt", balance);

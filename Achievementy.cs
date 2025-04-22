@@ -56,8 +56,10 @@ namespace Achievementy
         public static void PrvniWinBac (double vysledek) 
         {
             if (!ach["První Výhra v Baccaratu"]) {
-                ach["První Výhra v Baccaratu"] = true;
-                Console.WriteLine(" Gratulujeme! Získali jste achievement: První Výhra v Baccaratu")
+                if(vysledek>0) {
+                    ach["První Výhra v Baccaratu"] = true;
+                    Console.WriteLine(" Gratulujeme! Získali jste achievement: První Výhra v Baccaratu");
+                }
             }
         }
         public static void ShowAchievements()

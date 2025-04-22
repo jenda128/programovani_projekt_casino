@@ -32,7 +32,7 @@ namespace Kasino
                         {                            
                             Baccarat.BaccaratClass BaccaratPlay = new Baccarat.BaccaratClass();
                             balance = BaccaratPlay.PlayBaccarat(balance);
-                            File.WriteAllLines("BalanceHodnota.txt", balance);
+                            File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
                         break;
                         }
                         else 
@@ -45,7 +45,7 @@ namespace Kasino
                         if(Shop.ShopClass.ShopItems["Ruleta"].vlastni == true){
                             Ruleta.RuletaClass RuletaPlay = new Ruleta.RuletaClass();
                             balance = RuletaPlay.PlayRuleta(balance);
-                            File.WriteAllLines("BalanceHodnota.txt", balance);
+                            File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
                         break;
                         }
                         else 
@@ -57,16 +57,15 @@ namespace Kasino
                     case "3":                   
                         Okobere.OkoBereClass OkoBerePlay = new Okobere.OkoBereClass();
                         balance = OkoBerePlay.PlayOkoBere(balance);                        
-                        File.WriteAllLines("BalanceHodnota.txt", balance);
+                        File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
                         break;
                     case "4":
                         Shop.ShopClass ShopView = new Shop.ShopClass();
                         balance = ShopView.ViewShop(balance);                        
-                        File.WriteAllLines("BalanceHodnota.txt", balance);
+                        File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
                         break;
                     case "5": 
-                        Achievementy.AchievementyClass ShowAch = new Achievementy.AchievementyClass();
-                        ShowAch.ShowAchievements();
+                        Achievementy.AchievementyClass.ShowAchievements();
                         break;
                     case "exit":
                         Console.WriteLine("Jste si opravdu jistí?");
@@ -106,7 +105,7 @@ namespace Kasino
             
             
 
-            console.WriteLine("Pokud chcete Uložit všechny hodnoty, musíte odejít pomocí exit");
+            Console.WriteLine("Pokud chcete Uložit všechny hodnoty, musíte odejít pomocí exit");
             while(true){
                 Console.Write("Zadejte výběr: ");
                 Console.WriteLine("enter - napište pokud chcete do kasína");
