@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO; // Přidáme knihovnu pro práci se soubory
 using Shop;
 
 namespace Okobere
@@ -118,6 +119,9 @@ namespace Okobere
                     }
                 }
                 Console.WriteLine($"Zůstatek: {balance} Kč");
+
+                // Po skončení hry se uloží aktuální hodnota balance do souboru
+                File.WriteAllText("BalanceHodnota.txt", balance.ToString());
             }
             Console.WriteLine("Nemáš žádné peníze! Konec hry.");
             return balance;
