@@ -91,7 +91,7 @@ namespace Shop
                 else if (input == "exit")
                 {
                     File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + item.Value.cena + item.Value.vlastni)));
-                    File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
+                    File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));                    
                     return balance;
                 }
                 else
@@ -100,5 +100,22 @@ namespace Shop
                 }
             }
         }
+        public static  double BacPowerUpUse (double vyhra) {
+            if (ShopItems["Power-Up-Baccarat-vyšší-výhra(one-time-use)"].vlastni == true) {
+                ShopItems["Power-Up-Baccarat-vyšší-výhra(one-time-use)"].vlastni = false;
+                
+            }
+            else  {
+                return vyhra;
+            }
+
+
+
+
+
+
+
+
+        } 
     }
 }
