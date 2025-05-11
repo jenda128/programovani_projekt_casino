@@ -109,6 +109,7 @@ namespace Shop
             }
             else
             {
+                Console.WriteLine("Nevlastníte PowerUp");
                 return vyhra; // pokud hráč power-up nevlastní, výhra zůstane stejná
             }
         }

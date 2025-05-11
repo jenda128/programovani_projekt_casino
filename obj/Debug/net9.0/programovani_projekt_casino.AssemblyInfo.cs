@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("programovani_projekt_casino")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e1e564906433ad4cac311be1b3d212c49745af7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9fa0442bb395737c33639b5479e466f553f2070")]
 [assembly: System.Reflection.AssemblyProductAttribute("programovani_projekt_casino")]
 [assembly: System.Reflection.AssemblyTitleAttribute("programovani_projekt_casino")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -236,7 +236,9 @@ namespace Baccarat
                                     if (predikce == "hrac" || predikce == "banker" || predikce == "remiza")
                                     {
                                         starabalance = balance;
-                                        balance += HraBaccarat(input, predikce);
+                                        Console.WriteLine("Pokud si přejte použít power-up napište: Power-Up");
+                                        if (Console.ReadLine() == "Power-Up") balance += Shop.ShopClass.BacPowerUpUse(HraBaccarat(input, predikce));
+                                        else balance += HraBaccarat(input, predikce);
                                         Achievementy.AchievementyClass.PrvniWinBac((starabalance-balance));
                                         if (balance > starabalance)
                                         {
