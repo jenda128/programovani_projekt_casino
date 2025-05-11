@@ -8,11 +8,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = programovani_projekt_casino
-<<<<<<< HEAD
-build_property.ProjectDir = c:\Users\vysypal.ja.2023\Desktop\casino\programovani_projekt_casino\
-=======
-build_property.ProjectDir = C:\Users\solsky.ma.2023\Desktop\programovani_projekt_casino\
->>>>>>> 0512599229e15267955537abe6731e9308604392
+build_property.ProjectDir = C:\Users\Marek Solský\OneDrive\Plocha\Git\PVA\programovani_projekt_casino\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
