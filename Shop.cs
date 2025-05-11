@@ -1,30 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 namespace Shop
 {
-
-
     class ShopClass
     {
         /*generovane chatgpt:
-    private double balance;
-    private Dictionary<string, (int cena, bool vlastni)> ShopItems;
+        private double balance;
+        private Dictionary<string, (int cena, bool vlastni)> ShopItems;
 
-    public Shop(double initialBalance)
-    {
-    balance = initialBalance;
+        public Shop(double initialBalance)
+        {
+            balance = initialBalance;
 
-    // Seznam věcí, které lze koupit (název → cena, zda je hráč vlastní)
-    ShopItems = new Dictionary<string, (int, bool)>
-    {
-        { "Baccarat", (1000, false) },
-        { "Ruleta", (1200, false) },
-        { "Poker", (1500, false) } // Můžeš jednoduše přidávat další věci
-    };*/
+            // Seznam věcí, které lze koupit (název → cena, zda je hráč vlastní)
+            ShopItems = new Dictionary<string, (int, bool)>
+            {
+                { "Baccarat", (1000, false) },
+                { "Ruleta", (1200, false) },
+                { "Poker", (1500, false) } // Můžeš jednoduše přidávat další věci
+            };*/
         //tbh s timhle kodem mi pomohl chat gpt protoze jsem si uz vubec nepamatoval jak se pracuje se slovnikem
         //dictionary jsem delal s chatgpt
-
 
         /* public static Dictionary<string, (int cena, bool vlastni)> ShopItems { get; private set; } = new Dictionary<string, (int, bool)>
         {
@@ -33,7 +31,7 @@ namespace Shop
             { "Power-Up - OkoBere", (500, false) },
             { "Power-Up - Baccarat", (700, false) }
         }; */
-        
+
         public static Dictionary<string, (int cena, bool vlastni)> ShopItems = new Dictionary<string, (int, bool)>();
         public static void LoadShopItems()
         {
@@ -46,12 +44,10 @@ namespace Shop
                 var parts = radek.Split(';');
                 if (parts.Length == 3 && int.TryParse(parts[1], out int cena) && bool.TryParse(parts[2], out bool vlastni))
                 {
-                ShopItems[parts[0]] = (cena, vlastni);
+                    ShopItems[parts[0]] = (cena, vlastni);
                 }
             }
         }
-    
-
 
         public double ViewShop(double balance)
         {
@@ -84,13 +80,13 @@ namespace Shop
                     else
                     {
                         balance -= cena;
-                        ShopItems[input] = (cena, true);
+                        ShopItems[input] = (cena, true); // opravena chyba s immutable tuple
                         Console.WriteLine("koupili jste: " + input + " zbývá vám: " + balance + " chechtáků");
                     }
                 }
                 else if (input == "exit")
                 {
-                    File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + item.Value.cena + item.Value.vlastni)));
+                    File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + ";" + item.Value.cena + ";" + item.Value.vlastni)));
                     File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
                     return balance;
                 }
@@ -98,6 +94,22 @@ namespace Shop
                 {
                     Console.WriteLine("Neplatný vstup zkuste znovu");
                 }
+            }
+        }
+
+        public static double BacPowerUpUse(double vyhra)
+        {
+            if (ShopItems.ContainsKey("Power-Up-Baccarat-vyšší-výhra(one-time-use)") &&
+                ShopItems["Power-Up-Baccarat-vyšší-výhra(one-time-use)"].vlastni == true)
+            {
+                // opravena chyba: nelze upravit vlastnost přímo, musíme přepsat celý tuple
+                var item = ShopItems["Power-Up-Baccarat-vyšší-výhra(one-time-use)"];
+                ShopItems["Power-Up-Baccarat-vyšší-výhra(one-time-use)"] = (item.cena, false);
+                return vyhra * 1.5; // zde se přidá efekt power-upu na výhru
+            }
+            else
+            {
+                return vyhra; // pokud hráč power-up nevlastní, výhra zůstane stejná
             }
         }
     }
