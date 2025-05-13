@@ -1,5 +1,5 @@
-Lucky Streak false 
-High Roller false 
+Lucky-Streak false 
+High-Roller false 
 Jackpot false 
-Lucky Hand false 
-První Výhra v Baccaratu false
+Lucky-Hand false 
+První-Výhra-v-Baccaratu false

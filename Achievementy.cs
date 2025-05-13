@@ -5,17 +5,9 @@ namespace Achievementy
 {
     public static class AchievementyClass
     {
-        public static Dictionary<string, bool> ach = new Dictionary<string, bool>
-        {
-            { "Lucky Streak - 5x správná barva", false },
-            { "High Roller - sázka 1000+ Kč", false },
-            { "Jackpot - uhodnuto přesné číslo", false },
-            { "Lucky Hand - získání 21 bodů", false },
-            { "První Výhra v Baccaratu", false}
-        };
+        public static Dictionary<string, bool> ach = new Dictionary<string, bool>();
 
         private static int correctColorGuesses = 0;
-
         public static void CheckAchievements(string type, int bet, bool won)
         {
             if (type == "color" && won)
@@ -25,6 +17,7 @@ namespace Achievementy
                 {
                     ach["Lucky Streak - 5x správná barva"] = true;
                     Console.WriteLine(" Gratulujeme! Získali jste achievement: Lucky Streak - 5x správná barva!");
+                    File.WriteAllLines("AchievementyHodnoty.txt", ach.Select(item => (item.Key + " " + item.Value)));
                 }
             }
 
@@ -32,6 +25,7 @@ namespace Achievementy
             {
                 ach["High Roller - sázka 1000+ Kč"] = true;
                 Console.WriteLine(" Gratulujeme! Získali jste achievement: High Roller - sázka 1000+ Kč!");
+                    File.WriteAllLines("AchievementyHodnoty.txt", ach.Select(item => (item.Key + " " + item.Value)));
             }
         }
 
@@ -41,6 +35,7 @@ namespace Achievementy
             {
                 ach["Jackpot - uhodnuto přesné číslo"] = true;
                 Console.WriteLine(" Gratulujeme! Získali jste achievement: Jackpot - uhodnuto přesné číslo!");
+                    File.WriteAllLines("AchievementyHodnoty.txt", ach.Select(item => (item.Key + " " + item.Value)));
             }
         }
 
@@ -50,6 +45,7 @@ namespace Achievementy
             {
                 ach["Lucky Hand - získání 21 bodů"] = true;
                 Console.WriteLine(" Gratulujeme! Získali jste achievement: Lucky Hand - získání 21 bodů!");
+                    File.WriteAllLines("AchievementyHodnoty.txt", ach.Select(item => (item.Key + " " + item.Value)));
             }
         }
 
@@ -59,6 +55,7 @@ namespace Achievementy
                 if(vysledek>0) {
                     ach["První Výhra v Baccaratu"] = true;
                     Console.WriteLine(" Gratulujeme! Získali jste achievement: První Výhra v Baccaratu");
+                    File.WriteAllLines("AchievementyHodnoty.txt", ach.Select(item => (item.Key + " " + item.Value)));
                 }
             }
         }
@@ -74,12 +71,26 @@ namespace Achievementy
                     hasAchievements = true;
                 }
             }
-
             if (!hasAchievements)
             {
                 Console.WriteLine("Žádné achievementy zatím nejsou splněné.");
             }
             Console.WriteLine(":)");
+        }
+        public static void LoadAch()
+        {
+            ach.Clear();
+            string filePath = "AchievementyHodnoty.txt";
+            //copy paste ach hodnoty z textaku
+            string[] radky = File.ReadAllLines(filePath);
+            foreach (string line in radky)
+            {
+                string[] parts = line.Split(" ");
+                if (parts.Length == 2 && bool.TryParse(parts[1], out bool vlastni))
+                {
+                    ach[parts[0]] = (vlastni);
+                }
+            }
         }
     }
 }

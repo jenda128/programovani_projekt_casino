@@ -37,7 +37,7 @@ namespace Shop
         {
             ShopItems.Clear();
             string filePath = "ShopHodnoty.txt";
-            //copy paste shop hodnoty do textaku
+            //copy paste shop hodnoty z textaku
             //copilot:
             string[] radky = File.ReadAllLines(filePath);
             foreach (string line in radky)
@@ -87,7 +87,7 @@ namespace Shop
                 }
                 else if (input == "exit")
                 {
-                    File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + ";" + item.Value.cena + ";" + item.Value.vlastni)));
+                    File.WriteAllLines("ShopHodnoty.txt", ShopItems.Select(item => (item.Key + " " + item.Value.cena + " " + item.Value.vlastni)));
                     File.WriteAllText("BalanceHodnota.txt", Convert.ToString(balance));
                     return balance;
                 }

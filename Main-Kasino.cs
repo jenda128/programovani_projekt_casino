@@ -100,6 +100,7 @@ namespace Kasino
         static void Main(string[] args)
         {
             Shop.ShopClass.LoadShopItems();
+            Achievementy.AchievementyClass.LoadAch();
             double balance = LoadBalance();
             //copilot:
             
