@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marek Solský\\OneDrive\\Plocha\\Git\\PVA\\programovani_projekt_casino\\programovani_projekt_casino.csproj": {}
+    "C:\\Users\\solsky.ma.2023\\Desktop\\programovani_projekt_casino\\programovani_projekt_casino.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marek Solský\\OneDrive\\Plocha\\Git\\PVA\\programovani_projekt_casino\\programovani_projekt_casino.csproj": {
+    "C:\\Users\\solsky.ma.2023\\Desktop\\programovani_projekt_casino\\programovani_projekt_casino.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marek Solský\\OneDrive\\Plocha\\Git\\PVA\\programovani_projekt_casino\\programovani_projekt_casino.csproj",
+        "projectUniqueName": "C:\\Users\\solsky.ma.2023\\Desktop\\programovani_projekt_casino\\programovani_projekt_casino.csproj",
         "projectName": "programovani_projekt_casino",
-        "projectPath": "C:\\Users\\Marek Solský\\OneDrive\\Plocha\\Git\\PVA\\programovani_projekt_casino\\programovani_projekt_casino.csproj",
-        "packagesPath": "C:\\Users\\Marek Solský\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marek Solský\\OneDrive\\Plocha\\Git\\PVA\\programovani_projekt_casino\\obj\\",
+        "projectPath": "C:\\Users\\solsky.ma.2023\\Desktop\\programovani_projekt_casino\\programovani_projekt_casino.csproj",
+        "packagesPath": "C:\\Users\\solsky.ma.2023\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\solsky.ma.2023\\Desktop\\programovani_projekt_casino\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marek Solský\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solsky.ma.2023\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +46,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -66,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

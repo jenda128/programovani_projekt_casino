@@ -39,9 +39,10 @@ namespace Shop
             string filePath = "ShopHodnoty.txt";
             //copy paste shop hodnoty do textaku
             //copilot:
-            foreach (string radek in File.ReadAllLines(filePath))
+            string[] radky = File.ReadAllLines(filePath);
+            foreach (string line in radky)
             {
-                var parts = radek.Split(';');
+                string[] parts = line.Split(" ");
                 if (parts.Length == 3 && int.TryParse(parts[1], out int cena) && bool.TryParse(parts[2], out bool vlastni))
                 {
                     ShopItems[parts[0]] = (cena, vlastni);
